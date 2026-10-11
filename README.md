@@ -1,35 +1,23 @@
-# Lab 01 — Birtərəfli əlaqəli siyahı (Singly Linked List)
+Ad, soyad: Nicat Orucov
+Qrup: KOM25A
+Laboratoriya işi 1
+Əlaqəli siyahılar (Linked Lists)
 
-## Layihə haqqında
+Yerinə yetirilmiş tapşırıqlar:
+- Siyahının əvvəlinə element əlavə etmə
+- Siyahının sonuna element əlavə etmə
+- Düyünün silinməsi
+- Düyünün axtarışı
+- Siyahının uzunluğunun tapılması
+- Minimum və maksimum elementin tapılması
+- Siyahının tərsinə çevrilməsi
 
-Bu laboratoriya işində C++ dilində birtərəfli əlaqəli siyahı üzərində əsas əməliyyatlar araşdırılıb. Məqsəd siyahının necə qurulduğunu, düyünlərin göstəricilər (pointer) vasitəsilə necə bağlandığını və hər əməliyyatın nə qədər səmərəli olduğunu başa düşməkdir.
-
-## Əlaqəli siyahı nədir?
-
-Əlaqəli siyahı verilənləri ardıcıl saxlayan strukturdur. Massivdən fərqli olaraq elementlər yaddaşda ardıcıl yerləşmir. Hər element ayrıca düyündür (node) və iki hissədən ibarətdir:
-
-- **data**: düyünün saxladığı qiymət
-- **next**: növbəti düyünü göstərən göstərici
-
-Siyahı `head` göstəricisi ilə başlayır, sonuncu düyünün `next`-i isə `nullptr` olur. İstənilən elementə çatmaq üçün siyahını baştan gəzmək lazımdır.
-
-## Araşdırılan əməliyyatlar
-
-1. **Əlavə etmə:** siyahının əvvəlinə və sonuna yeni düyün əlavə etmək. Əvvələ əlavə etmək sürətlidir, sona əlavə etmək üçün isə siyahını sonuna qədər gəzmək lazımdır.
-2. **Silmə:** verilmiş qiymətə malik düyünü tapıb siyahıdan çıxarmaq və yaddaşı azad etmək. Silinəcək düyün əvvəldə, ortada, sonda ola bilər, siyahı da boş ola bilər, bu hallar ayrıca yoxlanılır.
-3. **Axtarış:** elementin siyahıda olub-olmadığını düyünləri ardıcıl gəzərək yoxlamaq.
-4. **Uzunluq:** düyünləri gəzərək sayğac vasitəsilə siyahının uzunluğunu tapmaq.
-5. **Minimum və maksimum:** siyahını bir dəfə gəzərək ən kiçik və ən böyük elementi müəyyən etmək.
-6. **Tərsinə çevirmə:** yeni düyün yaratmadan göstəricilərin istiqamətini dəyişərək siyahının sırasını tərsinə çevirmək.
-
-## Nəticələr
-
-- Əlaqəli siyahıda indeksə birbaşa müraciət yoxdur, buna görə axtarış, silmə, uzunluq və min/max əməliyyatları O(n) vaxt aparır.
-- Yalnız siyahının əvvəlinə əlavə etmək O(1)-dir.
-- Göstəriciləri dəyişərkən növbəti düyünün ünvanını əvvəlcədən yadda saxlamaq vacibdir, əks halda siyahının qalan hissəsi itir.
-- Silinən düyün `delete` ilə azad edilmədikdə yaddaş sızması (memory leak) yaranır.
-
-## Fayllar
-
-`task1.cpp`, `task2.cpp`, `Task3.cpp`, `task4.cpp`, `task5.cpp`, `task6.cpp`: hər tapşırığın kodu.
-Ətraflı hesabat: `Lab01_Nicat_Orucov.docx`.
+Proqramın iş prinsipi:
+Proqram birtərəfli əlaqəli siyahıdan istifadə edir. Hər düyün (Node) qiyməti (data) və növbəti düyünü göstərən göstəricini (next) saxlayır. Siyahı head göstəricisi ilə başlayır, sonuncu düyün isə nullptr-ə işarə edir. Bütün əməliyyatlar düyünləri göstəricilər vasitəsilə gəzməklə yerinə yetirilir:
+- Əvvələ əlavə etmə: yeni düyün yaradılır, onun next-i köhnə head-ə bağlanır və head yeni düyünə keçirilir.
+- Sona əlavə etmə: siyahı sonuncu düyünə qədər gəzilir və onun next-i yeni düyünə bağlanır.
+- Düyünün silinməsi: verilmiş qiymətli düyün tapılır, əvvəlki düyün növbətiyə bağlanır və yaddaş delete ilə azad edilir.
+- Axtarış: qiymət tapılana və ya siyahı bitənə qədər düyünlər ardıcıl yoxlanılır.
+- Uzunluq: siyahı gəzilərkən düyünlər sayılır.
+- Minimum və maksimum: siyahı bir dəfə gəzilir və hər qiymət cari minimum və maksimumla müqayisə edilir.
+- Tərsinə çevirmə: hər düyünün next göstəricisi əvvəlki düyünə yönəldilir, sonda head sonuncu düyünə təyin olunur.
